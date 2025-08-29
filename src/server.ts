@@ -1,4 +1,5 @@
 import http, {IncomingMessage, ServerResponse} from 'http'
+import { itemRoute } from './routes/item';
 
 //Create a Port that the Server will listen to
 const PORT = 4000;
@@ -6,10 +7,17 @@ const PORT = 4000;
 
 const requestListener = (req : IncomingMessage, res: ServerResponse) => {
    console.log(req.url, 'url');
-  res.writeHead(200, {"content-type" : "application/json"});
-  res.end(JSON.stringify({message : "Invalid Endpoint"}));
+  
+    if(req.url?.startsWith("/item"))
+    {
+        itemRoute(req,res)
+    }else{
+        res.writeHead(200, {"content-type" : "application/json"});
+        res.end(JSON.stringify({message:"Invalid url!!!"}))
+    }
+
 };
-   
+
 //Create a server
 const server = http.createServer(requestListener)
 
