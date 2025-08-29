@@ -30,13 +30,14 @@ A simple RESTful API for managing a shopping list built with Node.js and TypeScr
 
 2. Install dependencies:
    ```bash
-   npm install
+   npm i typescript ts-node @types/node,
+   npm i -D nodemon
    ```
 
 ## Running the Server
 
 ### Development Mode
-Start the development server with auto-restart:
+Start the development server :
 ```bash
 npm run dev
 ```
