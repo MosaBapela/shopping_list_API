@@ -61,7 +61,7 @@ export const itemRoute = async (req : IncomingMessage , res : ServerResponse) =>
                         res.end(JSON.stringify({ error : "Item quantity is required"}));
                     }
 
-                    if(!purchasedStatus || typeof purchasedStatus !== "boolean"){
+                    if(typeof purchasedStatus !== "boolean"){
                         res.writeHead(400, {"content-type" : "application/json"});
                         res.end(JSON.stringify({ error : "Purchase status of item is required"}));
                     }
